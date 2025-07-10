@@ -29,10 +29,11 @@ public class EmailController {
     // ajax로 비동기식 전송 시 변수는 @RequestParam으로 받는다.
     // DTO는 @requestBody로 받는다.
     @GetMapping("/send")
-    public String sendEmail(@RequestParam String to, 
-                            @RequestParam String subject, 
-                            @RequestParam String text,
+    public String sendEmail(@RequestParam("to") String to,
+                            @RequestParam("subject") String subject,
+                            @RequestParam("text") String text,
                             Model model) {
+
         log.info("이메일 전송 요청: to={}, subject={}, text={}", to, subject, text);
         
         // 이메일 전송 로직을 호출 (서비스 클래스에서 구현)
